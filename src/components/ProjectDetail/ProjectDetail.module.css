@@ -1,0 +1,459 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  padding-top: var(--space-6);
+}
+
+/* ---------- 상단 ---------- */
+.topRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-4);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.back:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.index {
+  font-size: var(--fs-xs);
+  color: var(--color-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.titleRow {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(3.5rem, 12vw, 12rem);
+  animation: titleIn 900ms var(--ease-out) both;
+  overflow-wrap: anywhere;
+}
+
+.year {
+  top: 0;
+  margin-top: 0.6em;
+  font-size: var(--fs-xs);
+  font-variant-numeric: tabular-nums;
+}
+
+.lead {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-5);
+  margin-top: var(--space-6);
+  padding-bottom: var(--space-6);
+}
+
+.summary {
+  margin: 0;
+  max-width: 40ch;
+  font-family: var(--font-kr);
+  font-size: var(--fs-md);
+  line-height: 1.8;
+  color: var(--color-ink-2);
+}
+
+.metaList {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4) var(--space-5);
+  align-content: start;
+}
+
+.metaList :global(.meta) dd {
+  font-family: var(--font-kr);
+  font-size: var(--fs-xs);
+  line-height: 1.5;
+}
+
+.siteLink {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+}
+
+/* 상세 상단 큰 비주얼 */
+.hero {
+  height: clamp(380px, 52vw, 720px);
+}
+
+/* ---------- 2열 블록 ---------- */
+.block {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-5);
+  margin-top: var(--space-9);
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--color-line);
+}
+
+.label {
+  margin: 0;
+  font-size: var(--fs-2xs);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-faint);
+}
+
+.blockBody {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.overview {
+  margin: 0;
+  max-width: 46ch;
+  font-family: var(--font-kr);
+  font-size: clamp(1rem, 1.4vw, 1.1875rem);
+  line-height: 1.85;
+  color: var(--color-ink-2);
+}
+
+.stack {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* ---------- 숫자 성과: 가로 띠 ---------- */
+.numbers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  margin-top: var(--space-8);
+  border-top: 1px solid var(--color-ink);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.numberItem {
+  /* 숫자 크기를 칸 너비에 맞추기 위한 기준 */
+  container-type: inline-size;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-5) var(--space-4) var(--space-5) 0;
+}
+
+.numberItem + .numberItem {
+  padding-left: var(--space-4);
+  border-left: 1px solid var(--color-line);
+}
+
+.number {
+  /* 칸 너비 기준으로 줄어들어 '187→106KB'처럼 긴 값도 옆 칸을 침범하지 않음 */
+  font-size: clamp(2rem, 16cqi, 4.75rem);
+  white-space: nowrap;
+}
+
+.numberLabel {
+  font-family: var(--font-kr);
+  font-size: var(--fs-xs);
+  color: var(--color-muted);
+}
+
+/* ---------- 섹션 제목 (압축 서체) ---------- */
+.sectionTitle {
+  margin: 0 0 var(--space-6);
+  font-size: var(--fs-section);
+}
+
+/* ---------- 주요 기능: 같은 크기 카드 2열 ---------- */
+.features {
+  margin-top: var(--space-10);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-line);
+}
+
+.featureGrid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-7) var(--space-6);
+}
+
+/* 기능이 3개(또는 6개)면 3열로 — 빈 칸이 생기지 않게 */
+.featureGrid.three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.featureCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-ink);
+}
+
+.featureTitle {
+  margin: 0;
+  font-family: var(--font-kr);
+  font-size: clamp(1.125rem, 1.8vw, 1.375rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.itemNo {
+  font-size: var(--fs-xs);
+  color: var(--color-faint);
+  font-variant-numeric: tabular-nums;
+}
+
+.itemDesc {
+  margin: 0;
+  max-width: 52ch;
+  font-family: var(--font-kr);
+  font-size: var(--fs-sm);
+  line-height: 1.8;
+  color: var(--color-muted);
+}
+
+/* ---------- 화면 갤러리 ---------- */
+.gallery {
+  margin-top: var(--space-10);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-line);
+}
+
+.desktopGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-7) var(--space-5);
+}
+
+.figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+.figure figcaption {
+  font-family: var(--font-kr);
+  font-size: var(--fs-xs);
+  color: var(--color-muted);
+}
+
+.toneBand {
+  margin-top: var(--space-7);
+  padding: clamp(28px, 5vw, 72px) clamp(20px, 5vw, 72px);
+  border-radius: var(--radius-sm);
+  background: var(--tone);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 220px));
+  justify-content: center;
+  gap: clamp(16px, 4vw, 56px);
+}
+
+.toneBand .figure figcaption {
+  color: var(--color-ink-2);
+  text-align: center;
+}
+
+/* ---------- 결정 · 트러블슈팅 ---------- */
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.item:first-child {
+  padding-top: 0;
+}
+
+.itemTitle {
+  margin: 0;
+  font-family: var(--font-kr);
+  font-size: var(--fs-md);
+  font-weight: 500;
+}
+
+.trouble {
+  display: grid;
+  grid-template-columns: 2rem repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+  padding: 18px 0;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.trouble:first-child {
+  padding-top: 0;
+}
+
+.tNo {
+  font-size: var(--fs-xs);
+  color: var(--color-faint);
+  font-variant-numeric: tabular-nums;
+}
+
+.tLabel {
+  display: inline-block;
+  margin-bottom: 8px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: var(--color-pill);
+  font-size: var(--fs-2xs);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.tSolution {
+  background: var(--color-ink);
+  color: #fff;
+}
+
+/* ---------- 다음 프로젝트 ---------- */
+.next {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-5);
+  align-items: end;
+  margin-top: var(--space-10);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-line);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.nextText {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.nextLabel {
+  font-size: var(--fs-2xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-faint);
+}
+
+.nextTitle {
+  font-size: var(--fs-section);
+  transition: transform 600ms var(--ease-out);
+}
+
+.nextVisual {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+}
+
+.nextShot {
+  position: absolute;
+  left: 10%;
+  top: 14%;
+  width: 80%;
+  transition: transform 800ms var(--ease-out);
+}
+
+.next:hover .nextTitle {
+  transform: translateX(16px);
+}
+
+.next:hover .nextShot {
+  transform: translateY(-8px);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .next {
+    cursor: none;
+  }
+}
+
+@keyframes titleIn {
+  from {
+    opacity: 0;
+    transform: translateY(0.12em);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------- tablet: 라벨을 위로 올려 본문 폭 확보 ---------- */
+@media (max-width: 960px) {
+  .block {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-4);
+  }
+}
+
+/* ---------- mobile ---------- */
+@media (max-width: 720px) {
+  .lead,
+  .block,
+  .featureGrid,
+  .desktopGrid,
+  .next {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .featureGrid.three {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .toneBand {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    padding: 24px 14px;
+  }
+  .toneBand .figure figcaption {
+    font-size: var(--fs-2xs);
+  }
+  .trouble {
+    grid-template-columns: 1.5rem minmax(0, 1fr);
+  }
+  .trouble > div:last-child {
+    grid-column: 2;
+  }
+  .numberItem + .numberItem {
+    padding-left: 0;
+    border-left: 0;
+    border-top: 1px solid var(--color-line);
+  }
+  /* 고정 높이 대신 비율로 — 좁은 화면에서 아래가 비어 보이지 않게 */
+  .hero {
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+}
+

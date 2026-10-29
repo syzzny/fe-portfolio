@@ -1,0 +1,102 @@
+.stage {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.browser,
+.phone {
+  position: absolute;
+  transition: transform 800ms var(--ease-out);
+}
+
+/* 카드 호버 시 깊이감: 창은 조금, 폰은 더 많이 떠오름 */
+:global(article):hover .browser {
+  transform: translateY(-6px);
+}
+
+:global(article):hover .phone {
+  transform: translateY(-14px);
+}
+
+/* ---------- 목록 카드 (16:9) ---------- */
+.card .browser {
+  left: 9%;
+  top: 11%;
+  width: 82%;
+}
+
+.card.withPhone .browser {
+  left: 7%;
+  width: 74%;
+}
+
+.card .phone {
+  right: 6%;
+  top: 30%;
+  width: 18%;
+}
+
+/* ---------- 대표 카드: 왼쪽은 캡션 자리 ---------- */
+.featured .browser {
+  right: 7%;
+  top: 12%;
+  width: 56%;
+}
+
+.featured .phone {
+  right: 52%;
+  top: 34%;
+  width: 12%;
+}
+
+/* ---------- 상세 상단 ---------- */
+.hero .browser {
+  left: 50%;
+  top: 9%;
+  width: 72%;
+  translate: -50% 0;
+}
+
+/* 폰이 없는 상세 상단: 창을 세로 가운데에 */
+.hero:not(.withPhone) .browser {
+  top: 50%;
+  translate: -50% -50%;
+}
+
+.hero.withPhone .browser {
+  left: 8%;
+  width: 70%;
+  translate: none;
+}
+
+.hero .phone {
+  right: 8%;
+  top: 24%;
+  width: 17%;
+}
+
+/* 태블릿 이하 대표 카드: 화면을 위쪽에 크게 */
+@media (max-width: 960px) {
+  .featured .browser {
+    left: 6%;
+    right: auto;
+    top: 8%;
+    width: 88%;
+  }
+  .featured .phone {
+    right: 6%;
+    top: 22%;
+    width: 22%;
+  }
+}
+
+@media (max-width: 720px) {
+  .card .phone,
+  .hero .phone {
+    width: 22%;
+  }
+  .hero:not(.withPhone) .browser {
+    width: 84%;
+  }
+}

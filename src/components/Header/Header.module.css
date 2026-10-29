@@ -1,0 +1,65 @@
+.header {
+  /* 스크롤해도 상단에 고정 */
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 80px;
+  transition: min-height 300ms var(--ease-out);
+}
+
+/* 배경과 아래 선은 화면 전체 너비로 */
+.header::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 50%;
+  z-index: -1;
+  width: 100vw;
+  transform: translateX(-50%);
+  background: color-mix(in srgb, var(--color-bg) 88%, transparent);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 300ms;
+}
+
+/* 스크롤을 내리면 높이를 줄이고 아래 선을 표시 */
+.header[data-scrolled='true'] {
+  min-height: 64px;
+}
+.header[data-scrolled='true']::before {
+  border-bottom-color: var(--color-line);
+}
+
+.logo {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+}
+
+.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 6px;
+}
+
+/* 알약은 작게 보이되 터치 영역은 넉넉하게 */
+.item {
+  position: relative;
+  transition: background 200ms, color 200ms;
+}
+.item::after {
+  content: '';
+  position: absolute;
+  inset: -12px -2px;
+}
+.item[aria-current='page'],
+.item:hover {
+  background: var(--color-ink);
+  color: #fff;
+}

@@ -1,0 +1,51 @@
+.cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 50;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.ball {
+  position: absolute;
+  left: -44px;
+  top: -44px;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  /* 어두운·밝은 카드 모두에서 보이도록 반투명 흰색 + 블러 (레퍼런스의 원형 버튼 톤) */
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+  color: var(--color-ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  scale: 0;
+  opacity: 0;
+  transition:
+    scale 350ms var(--ease-out),
+    opacity 200ms;
+}
+
+.ball[data-active='true'] {
+  scale: 1;
+  opacity: 1;
+}
+
+.label {
+  font-size: var(--fs-2xs);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+.ball svg {
+  width: 13px;
+  height: 13px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+}

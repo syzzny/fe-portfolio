@@ -1,0 +1,317 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  padding-top: var(--space-8);
+}
+
+/* ---------- PROJECTS 타이틀 ---------- */
+.titleRow {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.title {
+  margin: 0;
+  font-size: var(--fs-giant);
+  animation: titleIn 900ms var(--ease-out) both;
+}
+
+.count {
+  font-size: var(--fs-xs);
+  font-variant-numeric: tabular-nums;
+  margin-top: 0.6em;
+  top: 0;
+}
+
+.subRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--space-4) var(--space-6);
+  margin-top: var(--space-5);
+  padding-bottom: var(--space-5);
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.filter {
+  border: 0;
+  background: none;
+  padding: 0;
+  min-height: 32px;
+  font-size: var(--fs-2xs);
+  letter-spacing: 0.04em;
+  color: var(--color-faint);
+  cursor: pointer;
+  transition: color 200ms;
+}
+
+.filter:hover,
+.filter[aria-pressed='true'] {
+  color: var(--color-ink);
+}
+
+.intro {
+  margin: 0;
+  font-family: var(--font-kr);
+  font-size: var(--fs-sm);
+  line-height: 1.7;
+  color: var(--color-muted);
+  text-align: right;
+}
+
+/* ---------- 공통 ---------- */
+.name {
+  margin: 0;
+  font-size: var(--fs-title);
+  line-height: 0.95;
+}
+
+.summary {
+  margin: 0;
+  max-width: 34ch;
+  font-family: var(--font-kr);
+  font-size: var(--fs-xs);
+  line-height: 1.65;
+  color: var(--color-muted);
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+.metaRow {
+  margin: 0;
+  display: flex;
+  gap: var(--space-6);
+}
+
+.visual {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+}
+
+.arrow {
+  position: absolute;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--color-ink);
+  transition:
+    transform 400ms var(--ease-out),
+    background 200ms;
+}
+
+.arrow svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+}
+
+.arrow:hover {
+  background: #fff;
+  transform: rotate(45deg);
+}
+
+.enter {
+  animation: enter 700ms var(--ease-out) both;
+}
+
+/* ---------- 대표 프로젝트 ---------- */
+.featured {
+  position: relative;
+}
+
+.featuredVisual {
+  height: clamp(340px, 40vw, 520px);
+}
+
+.featuredCaption {
+  position: absolute;
+  left: var(--space-6);
+  bottom: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+  color: #fff;
+  pointer-events: none;
+}
+
+.featuredCaption .name {
+  font-size: clamp(2rem, 3.4vw, 3rem);
+}
+
+.featuredCaption .summary {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.featuredCaption :global(.pill) {
+  background: rgba(255, 255, 255, 0.16);
+  color: #fff;
+}
+
+/* 밝은 배경의 대표 카드 */
+.onLight {
+  color: var(--color-ink);
+}
+
+.onLight .summary {
+  color: var(--color-ink-2);
+}
+
+.onLight :global(.pill) {
+  background: rgba(17, 17, 17, 0.08);
+  color: var(--color-ink);
+}
+
+.featured .arrow {
+  right: var(--space-4);
+  top: var(--space-4);
+}
+
+/* ---------- 행 리스트 ---------- */
+.row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-5);
+  margin-top: var(--space-5);
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--color-line);
+}
+
+.rowText {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-6);
+  padding-block: var(--space-2) var(--space-3);
+}
+
+.rowVisualWrap {
+  position: relative;
+}
+
+.rowVisual {
+  aspect-ratio: 16 / 9;
+  max-width: 100%;
+}
+
+.rowVisualWrap .arrow {
+  right: var(--space-3);
+  top: var(--space-3);
+}
+
+/* ---------- 2열 그리드 ---------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-5);
+  margin-top: var(--space-5);
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--color-line);
+}
+
+.gridItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.gridText {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes titleIn {
+  from {
+    opacity: 0;
+    transform: translateY(0.12em);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------- mobile ---------- */
+@media (max-width: 720px) {
+  .intro {
+    text-align: left;
+  }
+  .row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .rowVisualWrap {
+    order: -1;
+  }
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: var(--space-7);
+  }
+}
+
+/* 태블릿 이하 대표 카드: 화면은 위, 캡션은 아래 (캡션과 화면이 겹치지 않게) */
+@media (max-width: 960px) {
+  .featuredVisual {
+    height: max(460px, calc(58vw + 260px));
+  }
+  .featuredCaption {
+    left: var(--space-4);
+    right: var(--space-4);
+    bottom: var(--space-4);
+  }
+}
+
+/* ---------- 마우스 환경: 원형 커서 사용, 화살표 링크는 키보드 포커스 때만 ---------- */
+.visual[data-cursor] {
+  cursor: pointer;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .visual[data-cursor] {
+    cursor: none;
+  }
+  .visual [data-cursor-ignore] {
+    cursor: auto;
+  }
+  .arrow {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .arrow:focus-visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
