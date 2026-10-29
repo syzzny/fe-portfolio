@@ -3,7 +3,6 @@ import styles from './HomeHero.module.css'
 const META = [
   { label: 'Role', value: 'Frontend Developer' },
   { label: 'Focus', value: 'React · TypeScript' },
-  { label: 'Background', value: '3Y Product Design' },
 ]
 
 export default function HomeHero() {
